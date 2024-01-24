@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    trigers {
+        pollSCM '* * * * *'
+    }
+
+    stages {
+        stage('build') {
+            steps {
+                echo 'buildingg..'
+            
+        sh ///
+         npm install
+         npm run build
+        ///
+    }
+        }
+       stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'npm run test'
+            }
+        }
+        
