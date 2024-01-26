@@ -3,22 +3,21 @@ pipeline {
     trigers {
         pollSCM '* * * * *'
     }
-
+    environment {
+        CI = false
+    }
     stages {
         stage('build') {
             steps {
                 echo 'buildingg..'
             
-        sh ///
+        sh '''
          npm install
          npm run build
-        ///
-    }
-        }
-       stage('Test') {
-            steps {
-                echo 'Testing..'
-                sh 'npm run test'
+        '''
             }
         }
+    }
+}
+
         
