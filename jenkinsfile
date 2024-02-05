@@ -16,14 +16,15 @@ pipeline {
          npm run build
         '''
             }
-        }
-             steps {
+        }    
+        stage('dockerising') {
+            steps {
                 echo "building"
                 sh 'docker login -u tendomo -p ${DOCKER_PASSWORD}'
-                sh 'docker build -t emmycomingd:0.2 ${BUILD_NUMBER} .'
+                sh 'docker build -t emmycomingd:0.2 .'
                 sh 'docker tag emmycomingd:0.2 tendomo/docker1'
                 sh 'docker push tendomo/docker1 0.2'
+            }
+        }
     }
-  }
-
-}     
+}
