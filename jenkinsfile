@@ -19,10 +19,10 @@ pipeline {
         stage('dockerising') {
             steps {
                 echo "building"
-                sh 'docker login -u tendomo -p ${DOCKER_PASSWORD}'
-                sh 'docker build -t emmycomingd:0.2 .'
-                sh 'docker tag emmycomingd:0.2 tendomo/emmy2'
-                sh 'docker push tendomo/emmy2 0.2'
+                sh 'Docker login -u tendomo -p ${DOCKER_PASSWORD}'
+                sh 'Docker build -t emmycomingd:0.2 .'
+                sh 'Docker tag emmycomingd:0.2 tendomo/emmy2'
+                sh 'Docker push tendomo/emmy2 0.2'
             }
         }
     }
