@@ -25,5 +25,9 @@ pipeline {
                 sh 'Docker push tendomo/emmy2 0.2'
             }
         }
+         stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     }
 }
