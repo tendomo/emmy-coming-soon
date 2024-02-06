@@ -1,5 +1,4 @@
-
-FROM ngnix-alpine as builder
+FROM nginx-alpine as builder
 WORKDIR /app
-COPY . /usr/share/ngnix/html
+COPY . /usr/share/nginx/html
 EXPOSE 90
