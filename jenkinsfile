@@ -10,7 +10,6 @@ pipeline {
         stage('build') {
             steps {
                 echo 'buildingg..'
-            
         sh '''
          npm install
          npm run build
@@ -22,8 +21,8 @@ pipeline {
                 echo "building"
                 sh 'docker login -u tendomo -p ${DOCKER_PASSWORD}'
                 sh 'docker build -t emmycomingd:0.2 .'
-                sh 'docker tag emmycomingd:0.2 tendomo/docker1'
-                sh 'docker push tendomo/docker1 0.2'
+                sh 'docker tag emmycomingd:0.2 tendomo/emmy2'
+                sh 'docker push tendomo/emmy2 0.2'
             }
         }
     }
