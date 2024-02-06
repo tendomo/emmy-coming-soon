@@ -1,4 +1,5 @@
 
-FROM ngnix-alpine
-COPY . /build /usr/share/ngnix/html
+FROM ngnix-alpine as build
+WORKDIR /app
+COPY . /usr/share/ngnix/html
 EXPOSE 90
