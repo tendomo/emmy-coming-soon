@@ -1,4 +1,4 @@
-FROM nginx-alpine as builder
-WORKDIR /app
-COPY . /usr/share/nginx/html
+FROM nginx-alpine
+COPY  /build/usr/share/nginx/html
 EXPOSE 90
+CMD ["nginx", "-g", "daemon off;"]
